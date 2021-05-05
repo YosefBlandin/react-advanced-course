@@ -6,10 +6,9 @@ import { GlobalStyle } from './styles/GlobalStyles'
 import { setContext } from '@apollo/client/link/context'
 import Context from './context/Context'
 
-const GRAPH_URL = 'https://advanced-yosef-react-yosefblandin.vercel.app/graphql'
-
+const GRAPH_URL = 'https://advanced-yosef-react-server.vercel.app/graphql'
 const httpLink = createHttpLink({
-  uri: GRAPH_URL
+  uri: GRAPH_URL, 
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -17,6 +16,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
+      "Access-Control-Allow-Credentials" : true, 
       authorization: token ? `Bearer ${token}` : ''
     }
   }

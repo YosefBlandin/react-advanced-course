@@ -21,42 +21,42 @@ module.exports = {
       }
     ]
   },
-	plugins: [
-	new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: './public/index.html'
-	}),
-		new WebpackPwaManifestPlugin({
-			name: 'Petgram - Tu app de fotos de mascotas',
-			shortname: 'Petgram',
-			description: 'Con Petgram puedes encontrar fotos de animales domesticos muy facilmente',
-			background_color: '#fff',
-			theme_color: '#b1a',
-			icons: [
-				{
-					src: path.resolve(__dirname, 'src','assets','dog.png'),
-					sizes: [96, 128, 192, 256, 384, 512],
-					purpose: 'any'
-				}
-			]
-		}),
-		new WorkboxWebpackPlugin.GenerateSW({
-			runtimeCaching: [
-				{
-					urlPattern: new RegExp('https://res.cloudinary.com|images.unsplash.com'),
-					handler: 'CacheFirst',
-					options: {
-						cacheName: 'images'
-					}
-				},
-				{
-					urlPattern: new RegExp('https://advanced-yosef-react-yosefblandin.vercel.app/'),
-					handler: 'NetworkFirst',
-					options: {
-						cacheName: 'api'
-					}
-				}
-			]
-		})
-	]
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './public/index.html'
+    }),
+    new WebpackPwaManifestPlugin({
+      name: 'Petgram - Tu app de fotos de mascotas',
+      shortname: 'Petgram',
+      description: 'Con Petgram puedes encontrar fotos de animales domesticos muy facilmente',
+      background_color: '#fff',
+      theme_color: '#b1a',
+      icons: [
+        {
+          src: path.resolve(__dirname, 'src', 'assets', 'dog.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          purpose: 'any'
+        }
+      ]
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://res.cloudinary.com|images.unsplash.com'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: new RegExp('https://advanced-yosef-react-server.vercel.app/'),
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
+        }
+      ]
+    })
+  ]
 }

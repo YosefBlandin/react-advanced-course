@@ -8,7 +8,7 @@ const useCategoriesData = () => {
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
-    fetch('https://advanced-yosef-react-yosefblandin.vercel.app/categories')
+    fetch('https://advanced-yosef-react-server.vercel.app/categories')
 	    .then(res => res.json())
 		  .then(res => {
         setCategories(res)

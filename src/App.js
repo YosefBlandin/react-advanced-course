@@ -14,22 +14,22 @@ const Favs = React.lazy(() => import('./pages/Favs'))
 
 export const App = () => {
   const { isAuth } = useContext(Context)
-	return (
-		<Suspense fallback={<div>we</div>}>
-    <BrowserRouter>
-      <Layout navLogo>
-        <Switch>
-          <Route component={Home} exact path={['/', '/pet/:id']} />
-          <Route component={Detail} exact path='/detail/:detailId' />
-          <Route component={NotRegisteredUser} exact path='/login' />
-          {!isAuth && <Redirect from='/favs' to='/login' />}
-          <Route component={Favs} exact path='/favs' />
-          {!isAuth && <Redirect from='/user' to='/login' />}
-          <Route component={User} exact path='/user' />
-          <Route component={NotFound} />
-        </Switch>
-      </Layout>
-		</BrowserRouter>
-		</Suspense>
+  return (
+    <Suspense fallback={<div>we</div>}>
+      <BrowserRouter>
+        <Layout navLogo>
+          <Switch>
+            <Route component={Home} exact path={['/', '/pet/:id']} />
+            <Route component={Detail} exact path='/detail/:detailId' />
+            <Route component={NotRegisteredUser} exact path='/login' />
+            {!isAuth && <Redirect from='/favs' to='/login' />}
+            <Route component={Favs} exact path='/favs' />
+            {!isAuth && <Redirect from='/user' to='/login' />}
+            <Route component={User} exact path='/user' />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </BrowserRouter>
+    </Suspense>
   )
 }
