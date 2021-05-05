@@ -3,6 +3,9 @@ import { fadeIn } from '../../styles/animation.js'
 export const List = styled.ul`
   display: flex;
   overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none
+  };
   width: 100%;
   ${props => props.fixed && css`
     ${fadeIn()};
