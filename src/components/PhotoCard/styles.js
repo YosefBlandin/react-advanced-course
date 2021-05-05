@@ -2,11 +2,10 @@ import styled from 'styled-components'
 import { fadeIn } from '../../styles/animation'
 
 export const Article = styled.article`
-		min-height: 200px;
-		width: 98%;
-		padding: 10px;
+		min-height: 250px;
+		width: 100%;
+		padding: 10px 0;
 		margin: 5px auto;
-		border-radius: 15px;
 		background: rgb(249,249,249);
 `
 export const ImgWrapper = styled.div`
@@ -15,7 +14,6 @@ export const ImgWrapper = styled.div`
     height: 0;
     width: 100%;
     overflow: hidden;
-    border-radius: 15px;
 		padding: 62.25% 0 0 0;
 `
 export const Img = styled.img`

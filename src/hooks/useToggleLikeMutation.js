@@ -12,7 +12,7 @@ mutation likePhoto($input: LikePhoto!) {
 `
 
 export const useToggleLikeMutation = () => {
-  const [toggleLike, { data }] = useMutation(LIKE_PHOTO)
+  const [toggleLike, { data, error }] = useMutation(LIKE_PHOTO)
 
-  return { toggleLike }
+  return { toggleLike, error }
 }
